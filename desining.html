@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Page Designer Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f7fb;
+    color:#222;
+    overflow-x:hidden;
+}
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:white;
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+.navbar{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 0;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:700;
+    color:#2563eb;
+}
+
+nav a{
+    text-decoration:none;
+    margin-left:25px;
+    color:#222;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#2563eb;
+}
+
+.hero{
+    min-height:100vh;
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    max-width:850px;
+    margin:auto;
+    line-height:1.8;
+    font-size:20px;
+}
+
+.hero-buttons{
+    margin-top:35px;
+}
+
+.btn{
+    padding:15px 35px;
+    border:none;
+    border-radius:40px;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    margin:10px;
+    transition:0.3s;
+}
+
+.primary-btn{
+    background:#2563eb;
+    color:white;
+}
+
+.primary-btn:hover{
+    background:#1e40af;
+    transform:translateY(-3px);
+}
+
+.secondary-btn{
+    background:white;
+    color:#2563eb;
+}
+
+.secondary-btn:hover{
+    background:#dbeafe;
+}
+
+section{
+    padding:100px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:45px;
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    max-width:700px;
+    margin:auto;
+    color:#666;
+}
+
+.courses{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.course-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.course-card:hover{
+    transform:translateY(-10px);
+}
+
+.course-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.course-content{
+    padding:25px;
+}
+
+.course-content h3{
+    margin-bottom:15px;
+    color:#2563eb;
+}
+
+.course-content p{
+    color:#666;
+    line-height:1.7;
+}
+
+.price{
+    font-size:28px;
+    font-weight:700;
+    margin:20px 0;
+    color:#111;
+}
+
+.course-content button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.course-content button:hover{
+    background:#1e40af;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.feature-box{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.feature-box h3{
+    margin:20px 0;
+    color:#2563eb;
+}
+
+.feature-box p{
+    color:#666;
+    line-height:1.7;
+}
+
+.icon{
+    font-size:50px;
+}
+
+.stats{
+    background:#2563eb;
+    color:white;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+    text-align:center;
+}
+
+.stat-box h3{
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.testimonials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.testimonial-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.testimonial-card p{
+    line-height:1.8;
+    color:#666;
+    margin-bottom:20px;
+}
+
+.testimonial-card h4{
+    color:#2563eb;
+}
+
+.contact-form{
+    max-width:750px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select{
+    width:100%;
+    padding:15px;
+    margin-bottom:20px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:16px;
+}
+
+.contact-form textarea{
+    resize:none;
+    height:140px;
+}
+
+.contact-form button{
+    width:100%;
+}
+
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+#backToTop{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    display:none;
+}
+
+@media(max-width:768px){
+    .hero-content h1{
+        font-size:45px;
+    }
+
+    nav{
+        display:none;
+    }
+
+    section{
+        padding:80px 7%;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <div class="logo">Web Designer Academy</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#courses">Courses</a>
+            <a href="#features">Features</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Learn Web Design & Coding Online</h1>
+
+        <p>
+            Master HTML, CSS, JavaScript, UI/UX design, and responsive web development
+            with professional online courses designed for beginners and advanced learners.
+        </p>
+
+        <div class="hero-buttons">
+            <button class="btn primary-btn" onclick="scrollToSection('courses')">Explore Courses</button>
+            <button class="btn secondary-btn" onclick="scrollToSection('contact')">Join Now</button>
+        </div>
+    </div>
+</section>
+
+<section id="courses">
+    <div class="section-title">
+        <h2>Popular Courses</h2>
+        <p>Choose from our professional coding and web design programs.</p>
+    </div>
+
+    <div class="courses">
+
+        <div class="course-card">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop" alt="HTML Course">
+
+            <div class="course-content">
+                <h3>HTML & CSS Masterclass</h3>
+                <p>Learn modern website structure, responsive layouts, and professional styling.</p>
+                <div class="price">$49</div>
+                <button onclick="enrollCourse('HTML & CSS Masterclass')">Enroll Now</button>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="JavaScript Course">
+
+            <div class="course-content">
+                <h3>JavaScript Developer</h3>
+                <p>Build dynamic and interactive websites with powerful JavaScript concepts.</p>
+                <div class="price">$69</div>
+                <button onclick="enrollCourse('JavaScript Developer')">Enroll Now</button>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="UI UX">
+
+            <div class="course-content">
+                <h3>UI/UX Web Design</h3>
+                <p>Create visually stunning and user-friendly web interfaces professionally.</p>
+                <div class="price">$89</div>
+                <button onclick="enrollCourse('UI/UX Web Design')">Enroll Now</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="features">
+    <div class="section-title">
+        <h2>Why Choose Us</h2>
+        <p>Professional learning experience with advanced training resources.</p>
+    </div>
+
+    <div class="features">
+
+        <div class="feature-box">
+            <div class="icon">💻</div>
+            <h3>Live Coding Classes</h3>
+            <p>Interactive coding sessions with expert instructors and real-time projects.</p>
+        </div>
+
+        <div class="feature-box">
+            <div class="icon">📚</div>
+            <h3>Professional Curriculum</h3>
+            <p>Industry-standard lessons covering modern web technologies and frameworks.</p>
+        </div>
+
+        <div class="feature-box">
+            <div class="icon">🎓</div>
+            <h3>Certification</h3>
+            <p>Receive a verified certificate after successfully completing your course.</p>
+        </div>
+
+        <div class="feature-box">
+            <div class="icon">🚀</div>
+            <h3>Career Support</h3>
+            <p>Build your portfolio and prepare for professional web development careers.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="stats">
+    <div class="stats-grid">
+
+        <div class="stat-box">
+            <h3 id="students">0</h3>
+            <p>Students Enrolled</p>
+        </div>
+
+        <div class="stat-box">
+            <h3 id="coursesCount">0</h3>
+            <p>Professional Courses</p>
+        </div>
+
+        <div class="stat-box">
+            <h3 id="projects">0</h3>
+            <p>Projects Completed</p>
+        </div>
+
+        <div class="stat-box">
+            <h3 id="certificates">0</h3>
+            <p>Certificates Issued</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="reviews">
+    <div class="section-title">
+        <h2>Student Reviews</h2>
+        <p>What our students say about our online coding academy.</p>
+    </div>
+
+    <div class="testimonials">
+
+        <div class="testimonial-card">
+            <p>
+                "This platform helped me become a professional front-end developer.
+                The courses are easy to understand and highly practical."
+            </p>
+            <h4>- Daniel Smith</h4>
+        </div>
+
+        <div class="testimonial-card">
+            <p>
+                "Amazing UI/UX course with professional design concepts.
+                I built my portfolio website after completing the classes."
+            </p>
+            <h4>- Sophia Johnson</h4>
+        </div>
+
+        <div class="testimonial-card">
+            <p>
+                "The JavaScript course was outstanding. I learned real-world coding
+                projects and improved my web development skills quickly."
+            </p>
+            <h4>- Michael Brown</h4>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <div class="section-title">
+        <h2>Enroll Today</h2>
+        <p>Join our professional coding academy and start your web development journey.</p>
+    </div>
+
+    <div class="contact-form">
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="email" id="email" placeholder="Your Email">
+
+        <select id="course">
+            <option value="">Select Course</option>
+            <option>HTML & CSS Masterclass</option>
+            <option>JavaScript Developer</option>
+            <option>UI/UX Web Design</option>
+        </select>
+
+        <textarea id="message" placeholder="Your Message"></textarea>
+
+        <button class="btn primary-btn" onclick="submitForm()">Submit Enrollment</button>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Web Designer Academy | All Rights Reserved</p>
+</footer>
+
+<button id="backToTop" onclick="scrollToTop()">↑</button>
+
+<script>
+function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({
+        behavior:'smooth'
+    });
+}
+
+function enrollCourse(courseName){
+    alert('Successfully enrolled in ' + courseName + '!');
+}
+
+function submitForm(){
+    const name=document.getElementById('name').value;
+    const email=document.getElementById('email').value;
+    const course=document.getElementById('course').value;
+    const message=document.getElementById('message').value;
+
+    if(name==='' || email==='' || course==='' || message===''){
+        alert('Please fill all fields');
+        return;
+    }
+
+    alert('Thank you '+name+'! Your enrollment has been submitted successfully.');
+
+    document.getElementById('name').value='';
+    document.getElementById('email').value='';
+    document.getElementById('course').value='';
+    document.getElementById('message').value='';
+}
+
+function animateCounter(id,target,speed){
+    let count=0;
+    const element=document.getElementById(id);
+
+    const interval=setInterval(()=>{
+        count++;
+        element.innerText=count;
+
+        if(count>=target){
+            clearInterval(interval);
+        }
+    },speed);
+}
+
+animateCounter('students',15000,1);
+animateCounter('coursesCount',35,50);
+animateCounter('projects',8500,1);
+animateCounter('certificates',12000,1);
+
+window.onscroll=function(){
+    const button=document.getElementById('backToTop');
+
+    if(document.body.scrollTop>300 || document.documentElement.scrollTop>300){
+        button.style.display='block';
+    }else{
+        button.style.display='none';
+    }
+}
+
+function scrollToTop(){
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+}
+</script>
+
+</body>
+</html>
